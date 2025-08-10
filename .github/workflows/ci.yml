@@ -26,16 +26,15 @@ jobs:
           cache: gradle
 
       - name: Grant execute permission for gradlew
-        run: chmod +x user-service/gradlew
+        run: chmod +x ./gradlew
 
-      - name: Build with Gradle
-        run: ./user-service/gradlew build --no-daemon --stacktrace
+      - name: Build user-service module
+        run: ./gradlew :user-service:build --no-daemon --stacktrace
 
-      - name: Run tests
-        run: ./user-service/gradlew test --no-daemon --stacktrace
+      - name: Run tests user-service
+        run: ./gradlew :user-service:test --no-daemon --stacktrace
 
       - name: Upload build artifact
-        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
