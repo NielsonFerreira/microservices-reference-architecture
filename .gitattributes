@@ -1,0 +1,49 @@
+# Define o comportamento de finais de linha para scripts e arquivos de texto comuns
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+
+# Scripts Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Arquivos de configuração (textuais)
+*.xml text
+*.yml text
+*.yaml text
+*.json text
+*.properties text
+*.gradle text
+*.md text
+*.txt text
+*.gitignore text
+*.gitattributes text
+
+# Código-fonte Java
+*.java text eol=lf
+
+# Arquivos binários
+*.jar binary
+*.war binary
+*.ear binary
+*.zip binary
+*.tar.gz binary
+*.rar binary
+*.exe binary
+*.dll binary
+*.class binary
+
+# Documentos binários (se houver)
+*.pdf binary
+
+# Imagens binárias
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# Outros arquivos que normalmente não devem ser convertidos
+*.so binary
+*.dylib binary
+*.a binary
