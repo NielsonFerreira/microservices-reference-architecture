@@ -94,5 +94,6 @@ microservices-reference-architecture/
    ```bash
    **http://localhost:8080/swagger-ui/index.html**
 
-##📄 Licença
+## 📄 Licença
+
 Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
