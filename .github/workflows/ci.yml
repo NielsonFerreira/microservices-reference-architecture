@@ -15,9 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Fazer checkout do repositório
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # 2️⃣ Configurar JDK 21
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -25,17 +27,29 @@ jobs:
           java-version: '21'
           cache: gradle
 
+      # 3️⃣ Dar permissão de execução ao gradlew
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
+      # 4️⃣ Build e teste do user-service
       - name: Build user-service module
         run: ./gradlew :user-service:build --no-daemon --stacktrace
 
       - name: Run tests user-service
         run: ./gradlew :user-service:test --no-daemon --stacktrace
 
-      - name: Upload build artifact
+      # 5️⃣ Build e teste do product-service
+      - name: Build product-service module
+        run: ./gradlew :product-service:build --no-daemon --stacktrace
+
+      - name: Run tests product-service
+        run: ./gradlew :product-service:test --no-daemon --stacktrace
+
+      # 6️⃣ Publicar artefatos (opcional)
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifact
-          path: user-service/build/libs/*.jar
+          name: build-artifacts
+          path: |
+            user-service/build/libs/*.jar
+            product-service/build/libs/*.jar
