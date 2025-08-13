@@ -1,3 +1,2 @@
 rootProject.name = 'microservices-reference-architecture'
-include 'common'
 include 'user-service'
