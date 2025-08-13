@@ -21,10 +21,6 @@ replay_pid*
 .gradle/
 build/
 
-# Gradle Wrapper files
-gradlew
-gradlew.bat
-
 # IntelliJ IDEA
 .idea/
 *.iml
