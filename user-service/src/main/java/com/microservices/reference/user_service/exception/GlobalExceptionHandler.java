@@ -1,43 +1,45 @@
 package com.microservices.reference.user_service.exception;
 
-import jakarta.persistence.EntityNotFoundException;
+import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.time.LocalDateTime;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.time.OffsetDateTime;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    private Map<String, Object> createBody(HttpStatus status, String message) {
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", status.value());
-        body.put("error", status.getReasonPhrase());
-        body.put("message", message);
-        return body;
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFound(NotFoundException ex, HttpServletRequest req) {
+        return build(HttpStatus.NOT_FOUND, ex.getMessage(), req);
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex) {
-        Map<String, Object> body = createBody(HttpStatus.BAD_REQUEST, ex.getMessage());
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex) {
-        Map<String, Object> body = createBody(HttpStatus.NOT_FOUND, ex.getMessage());
-        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex, HttpServletRequest req) {
+        var msg = ex.getBindingResult().getFieldErrors().stream()
+                .map(f -> f.getField() + ": " + f.getDefaultMessage())
+                .findFirst().orElse("Validation error");
+        return build(HttpStatus.BAD_REQUEST, msg, req);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleAllUncaughtException(Exception ex) {
-        Map<String, Object> body = createBody(HttpStatus.INTERNAL_SERVER_ERROR, "Erro interno no servidor");
-        ex.printStackTrace();
-        return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<ErrorResponse> handleGeneric(Exception ex, HttpServletRequest req) {
+        return build(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), req);
+    }
+
+    private ResponseEntity<ErrorResponse> build(HttpStatus status, String message, HttpServletRequest req) {
+        var body = ErrorResponse.builder()
+                .status(status.value())
+                .error(status.getReasonPhrase())
+                .message(message)
+                .path(req.getRequestURI())
+                .traceId(MDC.get("correlationId"))
+                .timestamp(OffsetDateTime.now())
+                .build();
+        return ResponseEntity.status(status).body(body);
     }
 }

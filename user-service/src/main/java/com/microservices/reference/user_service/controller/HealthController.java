@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Tag(name = "Ping Pong", description = "Ping pong endpoint")
-public class PingPongController {
+@Tag(name = "Health", description = "Endpoints de verificação de saúde")
+public class HealthController {
 
     @GetMapping("/ping")
-    @Operation(summary = "Ping endpoint", description = "Returns pong")
+    @Operation(summary = "Verifica se o serviço está ativo",
+            description = "Retorna 'pong' para indicar que o serviço está ativo")
     public String ping() {
         return "pong";
     }

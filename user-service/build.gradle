@@ -24,37 +24,18 @@ repositories {
 }
 
 dependencies {
-	implementation project(':common')
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-logging'
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
-	implementation 'org.fusesource.jansi:jansi:2.4.0'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
-	testImplementation 'org.mockito:mockito-core:5.2.0'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
-}
-
-sourceSets {
-	test {
-		java {
-			srcDirs = ['src/test/java']
-		}
-	}
-}
-
-tasks.withType(Test).configureEach {
-	enabled = false
 }
