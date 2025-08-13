@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: nielson.ferreira
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: admin
+              - column:
+                  name: email
+                  value: admin@example.com
+              - column:
+                  name: password
+                  value: "$2a$10$abcdefghijklmnopqrstuv" # senha já criptografada (bcrypt)
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: user
+              - column:
+                  name: email
+                  value: user@example.com
+              - column:
+                  name: password
+                  value: "$2a$10$zyxwvutsrqponmlkjihgfed" # senha já criptografada (bcrypt)

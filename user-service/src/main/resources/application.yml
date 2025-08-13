@@ -1,6 +1,11 @@
 server:
   port: 8080
 
+info:
+  app:
+    version: '0.0.1-SNAPSHOT'
+  gradle:
+    version: '8.14.3'
 spring:
   application:
     name: user-service
@@ -11,11 +16,13 @@ spring:
     password: sa
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     open-in-view: false
     properties:
       hibernate:
         format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yml
   h2:
     console:
       enabled: true
