@@ -1,0 +1,34 @@
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+                              ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗
+                              ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝
+                              ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║
+                              ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║
+                              ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║
+                              ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝
+                                 ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗███████╗
+                                 ██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝██╔════╝
+                                 ███████╗█████╗  ██████╔╝██║   ██║██║██║     █████╗
+                                 ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██║██║     ██╔══╝
+                                 ███████║███████╗██║  ██║ ╚████╔╝ ██║╚██████╗███████╗
+                                 ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝╚══════╝
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+${AnsiColor.YELLOW}+-+ Application Info +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}App Name:${AnsiColor.CYAN} ${spring.application.name}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Version:${AnsiColor.CYAN} ${info.app.version}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Spring Boot:${AnsiColor.CYAN} ${spring-boot.version}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Java:${AnsiColor.CYAN} ${java.version}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Gradle:${AnsiColor.CYAN} ${info.gradle.version}${AnsiColor.DEFAULT}
+
+${AnsiColor.YELLOW}+-+ Database Config +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}URL:${AnsiColor.CYAN} ${spring.datasource.url}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Driver:${AnsiColor.CYAN} ${spring.datasource.driver-class-name}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Dialect:${AnsiColor.CYAN} ${spring.jpa.properties.hibernate.dialect}${AnsiColor.DEFAULT}
+
+${AnsiColor.YELLOW}+-+ Liquibase +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Enabled:${AnsiColor.CYAN} ${spring.liquibase.enabled}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Changelog:${AnsiColor.CYAN} ${spring.liquibase.change-log}${AnsiColor.DEFAULT}
+
+${AnsiColor.YELLOW}+-+ General +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Server Port:${AnsiColor.CYAN} ${server.port}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Active Profile:${AnsiColor.CYAN} ${spring.profiles.active:default}${AnsiColor.DEFAULT}
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
