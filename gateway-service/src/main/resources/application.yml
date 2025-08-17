@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: gateway-service
+  output:
+    ansi:
+      enabled: ALWAYS
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: ${service.gateway.routes.user-service.uri}
+          predicates:
+            - Path=/users/**
+        - id: product-service
+          uri: ${service.gateway.routes.product-service.uri}
+          predicates:
+            - Path=/products/**
+      default-filters:
+        - AddResponseHeader=X-Gateway, Gateway-Service
+server:
+  port: 8080
+
+info:
+  app:
+    version: '0.0.1-SNAPSHOT'
+  gradle:
+    version: '8.14.3'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+service:
+  gateway:
+    routes:
+      user-service:
+        uri: http://localhost:8081
+      product-service:
+        uri: http://localhost:8082

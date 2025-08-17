@@ -1,0 +1,29 @@
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+                              ██████╗  █████╗ ████████╗███████╗██╗    ██╗ █████╗ ██╗   ██╗
+                             ██╔════╝ ██╔══██╗╚══██╔══╝██╔════╝██║    ██║██╔══██╗╚██╗ ██╔╝
+                             ██║  ███╗███████║   ██║   █████╗  ██║ █╗ ██║███████║ ╚████╔╝
+                             ██║   ██║██╔══██║   ██║   ██╔══╝  ██║███╗██║██╔══██║  ╚██╔╝
+                             ╚██████╔╝██║  ██║   ██║   ███████╗╚███╔███╔╝██║  ██║   ██║
+                              ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝
+                                 ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗███████╗
+                                 ██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝██╔════╝
+                                 ███████╗█████╗  ██████╔╝██║   ██║██║██║     █████╗
+                                 ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██║██║     ██╔══╝
+                                 ███████║███████╗██║  ██║ ╚████╔╝ ██║╚██████╗███████╗
+                                 ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝╚══════╝
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+${AnsiColor.YELLOW}+-+ Application Info +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}App Name:${AnsiColor.CYAN} ${spring.application.name}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Version:${AnsiColor.CYAN} ${info.app.version}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Spring Boot:${AnsiColor.CYAN} ${spring-boot.version}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Java:${AnsiColor.CYAN} ${java.version}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Gradle:${AnsiColor.CYAN} ${info.gradle.version}${AnsiColor.DEFAULT}
+
+${AnsiColor.YELLOW}+-+ Gateway Routes +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}User Service:${AnsiColor.CYAN} ${service.gateway.routes.user-service.uri} → /users/**${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Product Service:${AnsiColor.CYAN} ${service.gateway.routes.product-service.uri} → /products/**${AnsiColor.DEFAULT}
+
+${AnsiColor.YELLOW}+-+ General +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Server Port:${AnsiColor.CYAN} ${server.port}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Active Profile:${AnsiColor.CYAN} ${spring.profiles.active:default}${AnsiColor.DEFAULT}
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
