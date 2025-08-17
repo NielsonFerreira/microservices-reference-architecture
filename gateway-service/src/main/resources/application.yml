@@ -6,15 +6,17 @@ spring:
       enabled: ALWAYS
   cloud:
     gateway:
-      routes:
-        - id: user-service
-          uri: ${service.gateway.routes.user-service.uri}
-          predicates:
-            - Path=/users/**
-        - id: product-service
-          uri: ${service.gateway.routes.product-service.uri}
-          predicates:
-            - Path=/products/**
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: ${service.gateway.routes.user-service.uri}
+              predicates:
+                - Path=/user/**
+            - id: product-service
+              uri: ${service.gateway.routes.product-service.uri}
+              predicates:
+                - Path=/product/**
       default-filters:
         - AddResponseHeader=X-Gateway, Gateway-Service
 server:

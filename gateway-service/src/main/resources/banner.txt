@@ -20,8 +20,8 @@ ${AnsiColor.GREEN}Java:${AnsiColor.CYAN} ${java.version}${AnsiColor.DEFAULT}
 ${AnsiColor.GREEN}Gradle:${AnsiColor.CYAN} ${info.gradle.version}${AnsiColor.DEFAULT}
 
 ${AnsiColor.YELLOW}+-+ Gateway Routes +-+${AnsiColor.DEFAULT}
-${AnsiColor.GREEN}User Service:${AnsiColor.CYAN} ${service.gateway.routes.user-service.uri} → /users/**${AnsiColor.DEFAULT}
-${AnsiColor.GREEN}Product Service:${AnsiColor.CYAN} ${service.gateway.routes.product-service.uri} → /products/**${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}User Service:${AnsiColor.CYAN} ${service.gateway.routes.user-service.uri} → /user/**${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Product Service:${AnsiColor.CYAN} ${service.gateway.routes.product-service.uri} → /product/**${AnsiColor.DEFAULT}
 
 ${AnsiColor.YELLOW}+-+ General +-+${AnsiColor.DEFAULT}
 ${AnsiColor.GREEN}Server Port:${AnsiColor.CYAN} ${server.port}${AnsiColor.DEFAULT}
