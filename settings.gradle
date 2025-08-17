@@ -2,3 +2,4 @@ rootProject.name = 'microservices-reference-architecture'
 
 include 'user-service'
 include 'product-service'
+include 'gateway-service'
