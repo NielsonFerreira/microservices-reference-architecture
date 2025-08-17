@@ -44,6 +44,13 @@ jobs:
 
       - name: Run tests product-service
         run: ./gradlew :product-service:test --no-daemon --stacktrace
+      
+      # 4️⃣ Build e teste do gateway-service
+      - name: Build gateway-service module
+        run: ./gradlew :gateway-service:build --no-daemon --stacktrace
+
+      - name: Run tests gateway-service
+        run: ./gradlew :gateway-service:test --no-daemon --stacktrace
 
       # 6️⃣ Publicar artefatos (opcional)
       - name: Upload build artifacts
@@ -53,3 +60,4 @@ jobs:
           path: |
             user-service/build/libs/*.jar
             product-service/build/libs/*.jar
+            gateway-service/build/libs/*.jar
