@@ -33,7 +33,7 @@ public class ProductController {
     @PostMapping("/publish")
     public String publishProduct(@RequestParam String name) {
         producer.sendProductEvent("Novo produto: ".concat(name));
-        log.info("::: PRODUTOR PUBLICADO: ".concat(name));
+        log.info("::: PRODUTO PUBLICADO: ".concat(name));
         return "Produto publicado: ".concat(name);
     }
 }
