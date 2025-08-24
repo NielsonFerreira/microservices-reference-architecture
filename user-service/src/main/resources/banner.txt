@@ -28,6 +28,11 @@ ${AnsiColor.YELLOW}+-+ Liquibase +-+${AnsiColor.DEFAULT}
 ${AnsiColor.GREEN}Enabled:${AnsiColor.CYAN} ${spring.liquibase.enabled}${AnsiColor.DEFAULT}
 ${AnsiColor.GREEN}Changelog:${AnsiColor.CYAN} ${spring.liquibase.change-log}${AnsiColor.DEFAULT}
 
+${AnsiColor.YELLOW}+-+ Kafka Config +-+${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Bootstrap Servers:${AnsiColor.CYAN} ${spring.kafka.bootstrap-servers}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Key Serializer:${AnsiColor.CYAN} ${org.apache.kafka.common.serialization.StringDeserializer}${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}Value Serializer:${AnsiColor.CYAN} ${org.apache.kafka.common.serialization.StringDeserializer}${AnsiColor.DEFAULT}
+
 ${AnsiColor.YELLOW}+-+ General +-+${AnsiColor.DEFAULT}
 ${AnsiColor.GREEN}Server Port:${AnsiColor.CYAN} ${server.port}${AnsiColor.DEFAULT}
 ${AnsiColor.GREEN}Active Profile:${AnsiColor.CYAN} ${spring.profiles.active:default}${AnsiColor.DEFAULT}
